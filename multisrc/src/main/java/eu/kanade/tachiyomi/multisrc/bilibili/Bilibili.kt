@@ -308,7 +308,6 @@ abstract class Bilibili(
         }
 
         return result.data!!.episodeList
-            .filter { episode -> episode.payMode == 0 && episode.payGold == 0 }
             .map { ep -> chapterFromObject(ep, result.data.id) }
     }
 

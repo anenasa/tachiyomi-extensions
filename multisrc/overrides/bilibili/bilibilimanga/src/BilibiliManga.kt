@@ -38,7 +38,6 @@ class BilibiliManga : Bilibili(
         }
 
         return result.data!!.episodeList
-            .filter { episode -> episode.isInFree || !episode.isLocked }
             .map { ep -> chapterFromObject(ep, result.data.id) }
     }
 

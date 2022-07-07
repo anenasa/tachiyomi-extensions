@@ -81,10 +81,6 @@ abstract class BilibiliComics(lang: String) : Bilibili(
         val unlockedEpisodes = userEpisodesParse(userEpisodesResponse)
 
         return comic.episodeList
-            .filter { episode ->
-                (episode.payMode == 0 && episode.payGold == 0) ||
-                    episode.id in unlockedEpisodes
-            }
             .map { ep -> chapterFromObject(ep, comic.id) }
     }
 
