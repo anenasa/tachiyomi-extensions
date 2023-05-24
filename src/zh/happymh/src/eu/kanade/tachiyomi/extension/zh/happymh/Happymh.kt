@@ -132,6 +132,7 @@ class Happymh : HttpSource(), ConfigurableSource {
             .jsonObject["data"]!!.jsonObject["scans"]!!.jsonArray
             // If n == 1, the image is from next chapter
             .filter { it.jsonObject["n"]!!.jsonPrimitive.int == 0 }
+            .filter { it.jsonObject["height"]!!.jsonPrimitive.int > 2 }
             .mapIndexed { index, it ->
                 Page(index, "", it.jsonObject["url"]!!.jsonPrimitive.content)
             }
